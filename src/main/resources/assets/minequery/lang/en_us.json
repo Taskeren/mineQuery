@@ -1,0 +1,9 @@
+{
+  "minequery.calc.ow2nw": "Overworld -> Nether: %s/%s",
+  "minequery.calc.nw2ow": "Nether -> Overworld: %s/%s",
+  "minequery.feature.autorevive": "You just died, then revived.",
+  "minequery.feature.autorevive.enabled": "Auto Revive Enabled",
+  "minequery.feature.autorevive.disabled": "Auto Revive Disabled",
+  "minequery.feature.harvest-check.enabled": "Harvest Check Enabled",
+  "minequery.feature.harvest-check.disabled": "Harvest Check Disabled"
+}

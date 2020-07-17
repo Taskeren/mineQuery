@@ -1,0 +1,9 @@
+{
+  "minequery.calc.ow2nw": "主世界 -> 地狱: %s/%s",
+  "minequery.calc.nw2ow": "地狱 -> 主世界: %s/%s",
+  "minequery.feature.autorevive": "你死了，然后活了！",
+  "minequery.feature.autorevive.enabled": "自动重生开启",
+  "minequery.feature.autorevive.disabled": "自动重生关闭",
+  "minequery.feature.harvest-check.enabled": "收割检测开启",
+  "minequery.feature.harvest-check.disabled": "收割检测关闭"
+}
