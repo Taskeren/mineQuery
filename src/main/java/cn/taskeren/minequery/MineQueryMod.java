@@ -7,8 +7,7 @@ import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 public class MineQueryMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
-		System.out.println("Hello Fabric world!");
-
+		System.out.println("MineQuery!");
 		AttackBlockCallback.EVENT.register(new HarvestCheck());
 	}
 }
