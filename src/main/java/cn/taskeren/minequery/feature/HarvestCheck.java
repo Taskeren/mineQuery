@@ -2,10 +2,7 @@ package cn.taskeren.minequery.feature;
 
 import cn.taskeren.minequery.Features;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.StemBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -27,6 +24,13 @@ public class HarvestCheck implements AttackBlockCallback {
 				int age = state.get(crop.getAgeProperty());
 				int max = crop.getMaxAge();
 				if(age != max) {
+					return ActionResult.FAIL;
+				}
+			}
+
+			if(state.getBlock() instanceof NetherWartBlock) { // fix #1
+				int age = state.get(NetherWartBlock.AGE);
+				if(age != 7) {
 					return ActionResult.FAIL;
 				}
 			}
