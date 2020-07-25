@@ -8,15 +8,18 @@ import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import io.github.cottonmc.clientcommands.CottonClientCommandSource;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.math.MathHelper;
 
 import java.util.LinkedList;
 
+import static cn.taskeren.minequery.config.MineConfig.C;
 import static io.github.cottonmc.clientcommands.ArgumentBuilders.argument;
 import static io.github.cottonmc.clientcommands.ArgumentBuilders.literal;
 
 abstract class I<V> {
 
-	private static final LinkedList<I> ITEMS = Lists.newLinkedList();
+	private static final LinkedList<I<Integer>> ITEMS_INT = Lists.newLinkedList();
+	private static final LinkedList<I<Boolean>> ITEMS_BOOL = Lists.newLinkedList();
 
 	private final String name;
 	private final String description;
@@ -24,53 +27,101 @@ abstract class I<V> {
 	private String category;
 	private String defaultValue;
 
+	private int max, min;
+
+	// String Constructor
 	I(String name, String description, String category, String defaultValue) {
 		this.name = name;
 		this.description = description;
 		this.category = category;
 		this.defaultValue = defaultValue;
+	}
 
-		ITEMS.add(this);
+	// Integer Constructor
+	I(String name, String description, String category, int defaultValue, int max, int min) {
+		this.name = name;
+		this.description = description;
+		this.category = category;
+		this.defaultValue = Integer.toString(defaultValue);
+		this.max = max;
+		this.min = min;
 	}
 
 	@SuppressWarnings({"SameParameterValue"})
 	private static I<Boolean> ofBool(String name, String description, String category, boolean defaultValue) {
-		return new I<Boolean>(
+		I<Boolean> i = new I<Boolean>(
 				name,
 				description,
 				category,
 				Boolean.toString(defaultValue)
 		) {
 			@Override
-			public Boolean getValue(Configuration config) {
-				return getProperty(config).getBoolean();
+			public Boolean getValue() {
+				return getProperty().getBoolean();
 			}
 
 			@Override
-			public void setValue(Configuration config, Boolean bool) {
-				getProperty(config).set(bool);
-				config.save();
+			public void setValue(Boolean bool) {
+				getProperty().set(bool);
+				C.save();
 			}
 		};
+
+		ITEMS_BOOL.add(i);
+		return i;
 	}
 
-	Property getProperty(Configuration config) {
-		return config.get(category, name, defaultValue, description);
+	private static I<Integer> ofInt(String name, String desc, String category, int defaultValue, int max, int min) {
+		I<Integer> i = new I<Integer>(
+				name,
+				desc,
+				category,
+				defaultValue,
+				max,
+				min
+		) {
+			@Override
+			Property getProperty() {
+				Property prop = super.getProperty();
+				prop.setComment(desc + " [range: " + min + " ~ " + max + ", default: " + defaultValue + "]");
+				prop.setMinValue(min);
+				prop.setMaxValue(max);
+				return prop;
+			}
+
+			@Override
+			public Integer getValue() {
+				return getProperty().getInt();
+			}
+
+			@Override
+			public void setValue(Integer value) {
+				getProperty().set(MathHelper.clamp(value, min, max));
+				C.save();
+			}
+		};
+
+		ITEMS_INT.add(i);
+		return i;
 	}
 
-	public abstract V getValue(Configuration config);
-	public abstract void setValue(Configuration config, V value);
+	Property getProperty() {
+		return C.get(category, name, defaultValue, description);
+	}
+
+	public abstract V getValue();
+	public abstract void setValue(V value);
 
 	/* General Operations */
 	static void initializeConfiguration() {
-		ITEMS.forEach(item -> item.getValue(MineConfig.C));
+		ITEMS_BOOL.forEach(I::getValue);
 	}
 
 	static void initializeCommand(LiteralArgumentBuilder<CottonClientCommandSource> b) {
-		ITEMS.forEach(item -> {
+		ITEMS_BOOL.forEach(item -> {
 			b.then(literal(item.name).then(argument("enable", BoolArgumentType.bool()).executes(ctx -> {
 				boolean val = BoolArgumentType.getBool(ctx, "enable");
-				item.setValue(MineConfig.C, val);
+				item.setValue(val);
 				MineConfig.updateCaches();
 				ctx.getSource().sendFeedback(new TranslatableText("minequery.feature."+item.name+"."+(val?"enabled":"disabled")), false);
 				return Command.SINGLE_SUCCESS;
