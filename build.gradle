@@ -33,9 +33,11 @@ dependencies {
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
-
 	implementation "com.github.Taskeren:tconfig:${project.tconfig_version}"
 	implementation "com.github.octocynth:calculator-lib:8c69c67b0e"
+
+	include "com.github.Taskeren:tconfig:${project.tconfig_version}"
+	include "com.github.octocynth:calculator-lib:8c69c67b0e"
 }
 
 processResources {
