@@ -133,4 +133,11 @@ abstract class I<V> {
 			true
 	);
 
+	static final I<Boolean> ITEM_FEATURE_NOT_HIT_VILLAGERS = ofBool(
+			"not-hit-villagers",
+			"NotHitVillagers: prevent hitting villagers that cause price rising.",
+			"feature",
+			true
+	);
+
 }

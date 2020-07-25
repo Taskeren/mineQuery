@@ -58,4 +58,8 @@ public class MineConfig {
 		return ITEM_FEATURE_HARVESTX_STEMS.getValue(C);
 	}
 
+	public static boolean boolFeatureNotHitVillager() {
+		return ITEM_FEATURE_NOT_HIT_VILLAGERS.getValue(C);
+	}
+
 }
