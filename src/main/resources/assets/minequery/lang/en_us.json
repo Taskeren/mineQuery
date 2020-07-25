@@ -4,6 +4,16 @@
   "minequery.feature.autorevive": "You just died, then revived.",
   "minequery.feature.autorevive.enabled": "Auto Revive Enabled",
   "minequery.feature.autorevive.disabled": "Auto Revive Disabled",
-  "minequery.feature.harvest-check.enabled": "Harvest Check Enabled",
-  "minequery.feature.harvest-check.disabled": "Harvest Check Disabled"
+  "minequery.feature.harvestx.enabled": "HarvestX Enabled",
+  "minequery.feature.harvestx.disabled": "HarvestX Disabled",
+  "minequery.feature.harvestx.crops.enabled": "HarvestX for Crops Enabled",
+  "minequery.feature.harvestx.crops.disabled": "HarvestX for Crops Disabled",
+  "minequery.feature.harvestx.netherwart.enabled": "HarvestX for Nether Wart Enabled",
+  "minequery.feature.harvestx.netherwart.disabled": "HarvestX for Nether Wart Disabled",
+  "minequery.feature.harvestx.cactus.enabled": "HarvestX for Cactus Enabled",
+  "minequery.feature.harvestx.cactus.disabled": "HarvestX for Cactus Disabled",
+  "minequery.feature.harvestx.sugarcane.enabled": "HarvestX for Sugar Cane Enabled",
+  "minequery.feature.harvestx.sugarcane.disabled": "HarvestX for Sugar Cane Disabled",
+  "minequery.feature.harvestx.stems.enabled": "HarvestX for Stems Enabled",
+  "minequery.feature.harvestx.stems.disabled": "HarvestX for Stems Disabled"
 }

@@ -1,6 +1,6 @@
 package cn.taskeren.minequery.feature;
 
-import cn.taskeren.minequery.Features;
+import cn.taskeren.minequery.config.MineConfig;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,11 +14,11 @@ public class HarvestCheck implements AttackBlockCallback {
 
 	@Override
 	public ActionResult interact(PlayerEntity player, World world, Hand hand, BlockPos pos, Direction direction) {
-		if(!Features.enableHarvestCheck)
+		if(!MineConfig.boolFeatureHarvestx())
 			return ActionResult.PASS;
 
 		BlockState state = world.getBlockState(pos);
-		if(Features.enableHarvestCheck) {
+		if(MineConfig.boolFeatureHarvestxCrops()) {
 			if(state.getBlock() instanceof CropBlock) {
 				CropBlock crop = (CropBlock) state.getBlock();
 				int age = state.get(crop.getAgeProperty());
@@ -27,7 +27,9 @@ public class HarvestCheck implements AttackBlockCallback {
 					return ActionResult.FAIL;
 				}
 			}
+		}
 
+		if(MineConfig.boolFeatureHarvestxNetherWart()) {
 			if(state.getBlock() instanceof NetherWartBlock) { // fix #1
 				int age = state.get(NetherWartBlock.AGE);
 				if(age != 7) {
@@ -36,7 +38,7 @@ public class HarvestCheck implements AttackBlockCallback {
 			}
 		}
 
-		if(Features.enableHarvestCheckCactus) {
+		if(MineConfig.boolFeatureHarvestxCactus()) {
 			if(state.getBlock() == Blocks.CACTUS) {
 				if(world.getBlockState(pos.down()).getBlock() != Blocks.CACTUS) { // Has No Cactus below
 					return ActionResult.FAIL;
@@ -44,7 +46,7 @@ public class HarvestCheck implements AttackBlockCallback {
 			}
 		}
 
-		if(Features.enableHarvestCheckSugarCane) {
+		if(MineConfig.boolFeatureHarvestxSugarCane()) {
 			if(state.getBlock() == Blocks.SUGAR_CANE) {
 				if(world.getBlockState(pos.down()).getBlock() != Blocks.SUGAR_CANE) { // Has No Sugar Cane below
 					return ActionResult.FAIL;
@@ -52,7 +54,7 @@ public class HarvestCheck implements AttackBlockCallback {
 			}
 		}
 
-		if(Features.enablePreventBreakingStemBlock) {
+		if(MineConfig.boolFeatureHarvestxStems()) {
 			if(state.getBlock() instanceof StemBlock) {
 				return ActionResult.FAIL;
 			}

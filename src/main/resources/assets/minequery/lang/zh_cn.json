@@ -4,6 +4,16 @@
   "minequery.feature.autorevive": "你死了，然后活了！",
   "minequery.feature.autorevive.enabled": "自动重生开启",
   "minequery.feature.autorevive.disabled": "自动重生关闭",
-  "minequery.feature.harvest-check.enabled": "收割检测开启",
-  "minequery.feature.harvest-check.disabled": "收割检测关闭"
+  "minequery.feature.harvestx.enabled": "收割检测开启",
+  "minequery.feature.harvestx.disabled": "收割检测关闭",
+  "minequery.feature.harvestx.crops.enabled": "农作物收割检测开启",
+  "minequery.feature.harvestx.crops.disabled": "农作物收割检测关闭",
+  "minequery.feature.harvestx.netherwart.enabled": "地狱疣收割检测开启",
+  "minequery.feature.harvestx.netherwart.disabled": "地狱疣收割检测关闭",
+  "minequery.feature.harvestx.cactus.enabled": "仙人掌收割检测开启",
+  "minequery.feature.harvestx.cactus.disabled": "仙人掌收割检测关闭",
+  "minequery.feature.harvestx.sugarcane.enabled": "甘蔗收割检测开启",
+  "minequery.feature.harvestx.sugarcane.disabled": "甘蔗收割检测关闭",
+  "minequery.feature.harvestx.stems.enabled": "作物梗收割检测开启",
+  "minequery.feature.harvestx.stems.disabled": "作物梗收割检测关闭"
 }

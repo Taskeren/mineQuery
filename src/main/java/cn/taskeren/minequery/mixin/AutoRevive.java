@@ -1,6 +1,6 @@
 package cn.taskeren.minequery.mixin;
 
-import cn.taskeren.minequery.Features;
+import cn.taskeren.minequery.config.MineConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.DeathScreen;
 import net.minecraft.text.TranslatableText;
@@ -18,8 +18,8 @@ public abstract class AutoRevive {
 	@Inject(at = @At("RETURN"), method = "init()V")
 	@SuppressWarnings({"null"}) // MinecraftClient is NOT null
 	private void init(CallbackInfo info) {
-		if(Features.enableAutoRevive) {
-			onConfirmQuit(false); // Respawn
+		if(MineConfig.boolFeatureAutorevive()) {
+			MinecraftClient.getInstance().player.requestRespawn();
 			MinecraftClient.getInstance().player.sendMessage(new TranslatableText("minequery.feature.autorevive"), true);
 		}
 	}
