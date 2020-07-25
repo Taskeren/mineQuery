@@ -1,7 +1,8 @@
 package cn.taskeren.minequery.config;
 
 import cn.taskeren.tconfig.Configuration;
-import com.mojang.brigadier.builder.ArgumentBuilder;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import io.github.cottonmc.clientcommands.CottonClientCommandSource;
 
 import java.io.File;
 
@@ -21,7 +22,7 @@ public class MineConfig {
 		C.save();
 	}
 
-	public static void initializeCommand(ArgumentBuilder b) {
+	public static void initializeCommand(LiteralArgumentBuilder<CottonClientCommandSource> b) {
 		I.initializeCommand(b);
 	}
 
