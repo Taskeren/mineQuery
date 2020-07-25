@@ -21,5 +21,7 @@
   "minequery.feature.not-hit-iron-golem.0": "§6[不打铁傀儡] §b全部都打",
   "minequery.feature.not-hit-iron-golem.1": "§6[不打铁傀儡] §b只打自然生成",
   "minequery.feature.not-hit-iron-golem.2": "§6[不打铁傀儡] §b只打玩家制作",
-  "minequery.feature.not-hit-iron-golem.3": "§6[不打铁傀儡] §b全部不打"
+  "minequery.feature.not-hit-iron-golem.3": "§6[不打铁傀儡] §b全部不打",
+  "minequery.calculator.done": "%s §7=> %s",
+  "minequery.calculator.error": "§6[计算器] §c错误：%s"
 }

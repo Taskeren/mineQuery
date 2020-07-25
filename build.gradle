@@ -35,6 +35,7 @@ dependencies {
 	// You may need to force-disable transitiveness on them.
 
 	implementation "com.github.Taskeren:tconfig:${project.tconfig_version}"
+	implementation "com.github.octocynth:calculator-lib:8c69c67b0e"
 }
 
 processResources {
