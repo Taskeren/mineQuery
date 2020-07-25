@@ -1,6 +1,7 @@
 package cn.taskeren.minequery;
 
 import cn.taskeren.minequery.feature.HarvestCheck;
+import cn.taskeren.minequery.feature.NotHitIronGolem;
 import cn.taskeren.minequery.feature.NotHitVillager;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
@@ -12,5 +13,6 @@ public class MineQueryMod implements ModInitializer {
 		System.out.println("MineQuery!");
 		AttackBlockCallback.EVENT.register(new HarvestCheck());
 		AttackEntityCallback.EVENT.register(new NotHitVillager());
+		AttackEntityCallback.EVENT.register(new NotHitIronGolem());
 	}
 }

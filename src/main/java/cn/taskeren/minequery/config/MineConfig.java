@@ -31,35 +31,39 @@ public class MineConfig {
 	}
 
 	public static boolean boolFeatureAutorevive() {
-		return ITEM_FEATURE_AUTOREVIVE.getValue(C);
+		return ITEM_FEATURE_AUTOREVIVE.getValue();
 	}
 
 	public static boolean boolFeatureHarvestx() {
-		return ITEM_FEATURE_HARVESTX.getValue(C);
+		return ITEM_FEATURE_HARVESTX.getValue();
 	}
 
 	public static boolean boolFeatureHarvestxCrops() {
-		return ITEM_FEATURE_HARVESTX_CROPS.getValue(C);
+		return ITEM_FEATURE_HARVESTX_CROPS.getValue();
 	}
 
 	public static boolean boolFeatureHarvestxNetherWart() {
-		return ITEM_FEATURE_HARVESTX_NETHERWART.getValue(C);
+		return ITEM_FEATURE_HARVESTX_NETHERWART.getValue();
 	}
 
 	public static boolean boolFeatureHarvestxCactus() {
-		return ITEM_FEATURE_HARVESTX_CACTUS.getValue(C);
+		return ITEM_FEATURE_HARVESTX_CACTUS.getValue();
 	}
 
 	public static boolean boolFeatureHarvestxSugarCane() {
-		return ITEM_FEATURE_HARVESTX_SUGAR_CANE.getValue(C);
+		return ITEM_FEATURE_HARVESTX_SUGAR_CANE.getValue();
 	}
 
 	public static boolean boolFeatureHarvestxStems() {
-		return ITEM_FEATURE_HARVESTX_STEMS.getValue(C);
+		return ITEM_FEATURE_HARVESTX_STEMS.getValue();
 	}
 
 	public static boolean boolFeatureNotHitVillager() {
-		return ITEM_FEATURE_NOT_HIT_VILLAGERS.getValue(C);
+		return ITEM_FEATURE_NOT_HIT_VILLAGERS.getValue();
+	}
+
+	public static int intFeatureIronGolem() {
+		return ITEM_FEATURE_NOT_HIT_IRON_GOLEM.getValue();
 	}
 
 }

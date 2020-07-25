@@ -5,6 +5,7 @@ import cn.taskeren.tconfig.Property;
 import com.google.common.collect.Lists;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.BoolArgumentType;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import io.github.cottonmc.clientcommands.CottonClientCommandSource;
 import net.minecraft.text.TranslatableText;
@@ -127,6 +128,14 @@ abstract class I<V> {
 				return Command.SINGLE_SUCCESS;
 			})));
 		});
+
+		// NotHitIronGolem
+		b.then(literal("not-hit-iron-golem").then(argument("level", IntegerArgumentType.integer(0, 3)).executes(ctx -> {
+			int level = IntegerArgumentType.getInteger(ctx, "level");
+			ITEM_FEATURE_NOT_HIT_IRON_GOLEM.setValue(level);
+			ctx.getSource().sendFeedback(new TranslatableText("minequery.feature.not-hit-iron-golem."+level), false);
+			return Command.SINGLE_SUCCESS;
+		})));
 	}
 
 	/* Frenquently Used Functions */
@@ -189,6 +198,15 @@ abstract class I<V> {
 			"NotHitVillagers: prevent hitting villagers that cause price rising.",
 			"feature",
 			true
+	);
+
+	static final I<Integer> ITEM_FEATURE_NOT_HIT_IRON_GOLEM = ofInt(
+			"not-hit-iron-golem",
+			"NotHitIronGolem: 0(hit all), 1(not hit player-created), 2(not hit non-player-created), 3(not hit both)",
+			"feature",
+			3,
+			3,
+			0
 	);
 
 }
