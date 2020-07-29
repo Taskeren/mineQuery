@@ -32,7 +32,7 @@ public class HarvestCheck implements AttackBlockCallback {
 		if(MineConfig.boolFeatureHarvestxNetherWart()) {
 			if(state.getBlock() instanceof NetherWartBlock) { // fix #1
 				int age = state.get(NetherWartBlock.AGE);
-				if(age != 7) {
+				if(age != 3) {
 					return ActionResult.FAIL;
 				}
 			}
