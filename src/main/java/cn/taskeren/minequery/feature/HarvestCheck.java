@@ -69,15 +69,12 @@ public class HarvestCheck implements AttackBlockCallback {
 			if(state.getBlock() instanceof StemBlock) {
 				return ActionResult.FAIL;
 			}
-			else {
-				seed(player.getPos(), pos.down());
-			}
 		}
 
 		return ActionResult.PASS;
 	}
 
-	void seed(Vec3d ppos, BlockPos bpos) {
+	private void seed(Vec3d ppos, BlockPos bpos) {
 		if(!MineConfig.boolFeatureReSeeding())
 			return;
 
