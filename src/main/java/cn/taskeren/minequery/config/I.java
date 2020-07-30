@@ -209,4 +209,11 @@ abstract class I<V> {
 			0
 	);
 
+	static final I<Boolean> ITEM_FEATURE_RESEEDING = ofBool(
+			"reseeding",
+			"ReSeeding: seed when crops and nether wart is broken",
+			"feature",
+			true
+	);
+
 }

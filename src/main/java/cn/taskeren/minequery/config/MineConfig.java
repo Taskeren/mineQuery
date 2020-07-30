@@ -66,4 +66,8 @@ public class MineConfig {
 		return ITEM_FEATURE_NOT_HIT_IRON_GOLEM.getValue();
 	}
 
+	public static boolean boolFeatureReSeeding() {
+		return ITEM_FEATURE_RESEEDING.getValue();
+	}
+
 }

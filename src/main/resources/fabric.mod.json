@@ -10,7 +10,8 @@
   ],
   "contact": {
     "homepage": "https://mq.taske.ren/",
-    "sources": "https://github.com/nitu2003/mineQuery"
+    "sources": "https://github.com/nitu2003/mineQuery",
+    "issues": "https://github.com/nitu2003/mineQuery/issues"
   },
 
   "license": "MIT",
@@ -18,7 +19,7 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "client": [
       "cn.taskeren.minequery.MineQueryMod"
     ],
     "cotton-client-commands": [
@@ -30,6 +31,10 @@
   "mixins": [
     "minequery.mixins.json"
   ],
+
+  "custom": {
+    "modmenu:clientsideOnly": true
+  },
 
   "depends": {
     "fabricloader": ">=0.7.4",

@@ -3,11 +3,15 @@ package cn.taskeren.minequery.feature;
 import cn.taskeren.minequery.config.MineConfig;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.minecraft.block.*;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.network.packet.c2s.play.PlayerInteractBlockC2SPacket;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class HarvestCheck implements AttackBlockCallback {
@@ -18,6 +22,7 @@ public class HarvestCheck implements AttackBlockCallback {
 			return ActionResult.PASS;
 
 		BlockState state = world.getBlockState(pos);
+
 		if(MineConfig.boolFeatureHarvestxCrops()) {
 			if(state.getBlock() instanceof CropBlock) {
 				CropBlock crop = (CropBlock) state.getBlock();
@@ -25,6 +30,9 @@ public class HarvestCheck implements AttackBlockCallback {
 				int max = crop.getMaxAge();
 				if(age != max) {
 					return ActionResult.FAIL;
+				}
+				else {
+					seed(player.getPos(), pos.down());
 				}
 			}
 		}
@@ -34,6 +42,9 @@ public class HarvestCheck implements AttackBlockCallback {
 				int age = state.get(NetherWartBlock.AGE);
 				if(age != 3) {
 					return ActionResult.FAIL;
+				}
+				else {
+					seed(player.getPos(), pos.down());
 				}
 			}
 		}
@@ -58,8 +69,27 @@ public class HarvestCheck implements AttackBlockCallback {
 			if(state.getBlock() instanceof StemBlock) {
 				return ActionResult.FAIL;
 			}
+			else {
+				seed(player.getPos(), pos.down());
+			}
 		}
 
 		return ActionResult.PASS;
+	}
+
+	void seed(Vec3d ppos, BlockPos bpos) {
+		if(!MineConfig.boolFeatureReSeeding())
+			return;
+
+		new Thread(()->{ // needs break block packet sent first
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			BlockHitResult bhr = new BlockHitResult(ppos, Direction.UP, bpos, false);
+			PlayerInteractBlockC2SPacket packet = new PlayerInteractBlockC2SPacket(Hand.MAIN_HAND, bhr);
+			MinecraftClient.getInstance().player.networkHandler.sendPacket(packet);
+		}).start();
 	}
 }
