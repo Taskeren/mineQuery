@@ -24,10 +24,10 @@
   "minequery.feature.not-hit-iron-golem.3": "§6[NotHitIronGolem] §bHit None",
   "minequery.calculator.done": "%s §7=> %s",
   "minequery.calculator.error": "§6[Calculator] §cError: %s",
-  "minequery.feature.not-placing-on-face.enabled": "§6[NotPlacingOnFace] §bEnabled",
-  "minequery.feature.not-placing-on-face.disabled": "§6[NotPlacingOnFace] §bDisabled",
-  "minequery.feature.not-placing-on-face.set.true": "§6[NotPlacingOnFace] §bPreventing placing on §6%s",
-  "minequery.feature.not-placing-on-face.set.false": "§6[NotPlacingOnFace] §bAllowing placing on §6%s",
-  "minequery.feature.not-placing-on-face.prevented": "§6[NotPlacingOnFace] §bPrevented Placement",
-  "minequery.feature.not-placing-on-face.direction-not-found": "§6[NotPlacingOnFace] §bWrong Direction [up(u), down(d), north(n), south(s), east(e), west(w)]"
+  "minequery.feature.not-place-on-face.enabled": "§6[NotPlaceOnFace] §bEnabled",
+  "minequery.feature.not-place-on-face.disabled": "§6[NotPlaceOnFace] §bDisabled",
+  "minequery.feature.not-place-on-face.set.true": "§6[NotPlaceOnFace] §bPreventing placing on §6%s",
+  "minequery.feature.not-place-on-face.set.false": "§6[NotPlaceOnFace] §bAllowing placing on §6%s",
+  "minequery.feature.not-place-on-face.prevented": "§6[NotPlaceOnFace] §bPrevented Placement",
+  "minequery.feature.not-place-on-face.direction-not-found": "§6[NotPlaceOnFace] §bWrong Direction [up(u), down(d), north(n), south(s), east(e), west(w)]"
 }

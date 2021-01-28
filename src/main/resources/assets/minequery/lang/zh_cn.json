@@ -24,10 +24,10 @@
   "minequery.feature.not-hit-iron-golem.3": "§6[不打铁傀儡] §b全部不打",
   "minequery.calculator.done": "%s §7=> %s",
   "minequery.calculator.error": "§6[计算器] §c错误：%s",
-  "minequery.feature.not-placing-on-face.enabled": "§6[不放这个面] §b开启",
-  "minequery.feature.not-placing-on-face.disabled": "§6[不放这个面] §b关闭",
-  "minequery.feature.not-placing-on-face.set.true": "§6[不放这个面] §b阻止§6%s§b的放置",
-  "minequery.feature.not-placing-on-face.set.false": "§6[不放这个面] §b允许§6%s§b的放置",
-  "minequery.feature.not-placing-on-face.prevented": "§6[不放这个面] §b已阻止放置",
-  "minequery.feature.not-placing-on-face.direction-not-found": "§6[不放这个面] §b错误的方向 [up(u), down(d), north(n), south(s), east(e), west(w)]"
+  "minequery.feature.not-place-on-face.enabled": "§6[不放这个面] §b开启",
+  "minequery.feature.not-place-on-face.disabled": "§6[不放这个面] §b关闭",
+  "minequery.feature.not-place-on-face.set.true": "§6[不放这个面] §b阻止§6%s§b的放置",
+  "minequery.feature.not-place-on-face.set.false": "§6[不放这个面] §b允许§6%s§b的放置",
+  "minequery.feature.not-place-on-face.prevented": "§6[不放这个面] §b已阻止放置",
+  "minequery.feature.not-place-on-face.direction-not-found": "§6[不放这个面] §b错误的方向 [up(u), down(d), north(n), south(s), east(e), west(w)]"
 }

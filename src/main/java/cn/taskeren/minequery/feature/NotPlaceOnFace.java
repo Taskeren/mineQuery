@@ -10,7 +10,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-public class NotPlacingOnFace implements UseBlockCallback {
+public class NotPlaceOnFace implements UseBlockCallback {
 
 	public static boolean notUp, notDown, notNorth, notSouth, notEast, notWest;
 
@@ -49,33 +49,33 @@ public class NotPlacingOnFace implements UseBlockCallback {
 	@Override
 	public ActionResult interact(PlayerEntity playerEntity, World world, Hand hand, BlockHitResult blockHitResult) {
 
-		if(!MineConfig.boolFeatureNotPlacingOnFace())
+		if(!MineConfig.boolFeatureNotPlaceOnFace())
 			return ActionResult.PASS;
 
 		final Direction d = blockHitResult.getSide();
 		if(notUp || notDown || notNorth || notSouth || notEast || notWest) {
 			if(d == Direction.UP && notUp) {
-				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-placing-on-face.prevented"), true);
+				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-place-on-face.prevented"), true);
 				return ActionResult.FAIL;
 			}
 			else if(d == Direction.DOWN && notDown) {
-				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-placing-on-face.prevented"), true);
+				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-place-on-face.prevented"), true);
 				return ActionResult.FAIL;
 			}
 			else if(d == Direction.NORTH && notNorth) {
-				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-placing-on-face.prevented"), true);
+				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-place-on-face.prevented"), true);
 				return ActionResult.FAIL;
 			}
 			else if(d == Direction.SOUTH && notSouth) {
-				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-placing-on-face.prevented"), true);
+				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-place-on-face.prevented"), true);
 				return ActionResult.FAIL;
 			}
 			else if(d == Direction.EAST && notEast) {
-				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-placing-on-face.prevented"), true);
+				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-place-on-face.prevented"), true);
 				return ActionResult.FAIL;
 			}
 			else if(d == Direction.WEST && notWest) {
-				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-placing-on-face.prevented"), true);
+				playerEntity.sendMessage(new TranslatableText("minequery.feature.not-place-on-face.prevented"), true);
 				return ActionResult.FAIL;
 			}
 		}
