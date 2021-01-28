@@ -25,7 +25,8 @@
     "cotton-client-commands": [
       "cn.taskeren.minequery.command.CalcCommand",
       "cn.taskeren.minequery.command.MinequeryCommand",
-      "cn.taskeren.minequery.command.MineCalculator"
+      "cn.taskeren.minequery.command.MineCalculator",
+      "cn.taskeren.minequery.command.NotPlacingCommand"
     ]
   },
   "mixins": [

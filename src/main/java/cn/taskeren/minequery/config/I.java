@@ -216,4 +216,11 @@ abstract class I<V> {
 			true
 	);
 
+	static final I<Boolean> ITEM_FEATURE_NOT_PLACING_ON_FACE = ofBool(
+			"not-placing-on-face",
+			"Placing on Face: prevent placing the block on wrong direction",
+			"feature",
+			true
+	);
+
 }

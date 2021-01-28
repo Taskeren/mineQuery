@@ -70,4 +70,8 @@ public class MineConfig {
 		return ITEM_FEATURE_RESEEDING.getValue();
 	}
 
+	public static boolean boolFeatureNotPlacingOnFace() {
+		return ITEM_FEATURE_NOT_PLACING_ON_FACE.getValue();
+	}
+
 }
