@@ -1,5 +1,6 @@
 package cn.taskeren.minequery.feature;
 
+import cn.taskeren.minequery.config.MineConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.c2s.play.PlayerInteractBlockC2SPacket;
@@ -25,6 +26,8 @@ class ReSeeding {
 	 * @param b Block which was harvested(not Farmland)
 	 */
 	static void schedule(PlayerEntity p, BlockPos b) {
+		if(!MineConfig.boolFeatureReSeeding())
+			return;
 		TH_POOL.submit(()->{
 			Vec3d ppos = p.getPos();
 			BlockPos bpos = b.down();
